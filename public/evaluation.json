@@ -1,0 +1,300 @@
+{
+  "generatedAt": "2026-10-02T16:54:46.329Z",
+  "dataset": "serviceops-tr-v1",
+  "kind": "deterministic-policy-contract",
+  "modelCalls": 0,
+  "total": 40,
+  "passed": 40,
+  "split": {
+    "development": {
+      "total": 24,
+      "passed": 24
+    },
+    "holdout": {
+      "total": 16,
+      "passed": 16
+    }
+  },
+  "results": [
+    {
+      "id": "part-1",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "part-2",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "part-3",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "part-4",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "part-5",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "alternate-1",
+      "split": "development",
+      "expected": "part-alternate",
+      "actual": "part-alternate",
+      "passed": true
+    },
+    {
+      "id": "alternate-2",
+      "split": "development",
+      "expected": "part-alternate",
+      "actual": "part-alternate",
+      "passed": true
+    },
+    {
+      "id": "alternate-3",
+      "split": "development",
+      "expected": "part-alternate",
+      "actual": "part-alternate",
+      "passed": true
+    },
+    {
+      "id": "alternate-4",
+      "split": "holdout",
+      "expected": "part-alternate",
+      "actual": "part-alternate",
+      "passed": true
+    },
+    {
+      "id": "alternate-5",
+      "split": "holdout",
+      "expected": "part-alternate",
+      "actual": "part-alternate",
+      "passed": true
+    },
+    {
+      "id": "vehicle-1",
+      "split": "development",
+      "expected": "vehicle",
+      "actual": "vehicle",
+      "passed": true
+    },
+    {
+      "id": "vehicle-2",
+      "split": "development",
+      "expected": "vehicle",
+      "actual": "vehicle",
+      "passed": true
+    },
+    {
+      "id": "vehicle-3",
+      "split": "development",
+      "expected": "vehicle",
+      "actual": "vehicle",
+      "passed": true
+    },
+    {
+      "id": "vehicle-4",
+      "split": "holdout",
+      "expected": "vehicle",
+      "actual": "vehicle",
+      "passed": true
+    },
+    {
+      "id": "vehicle-5",
+      "split": "holdout",
+      "expected": "vehicle",
+      "actual": "vehicle",
+      "passed": true
+    },
+    {
+      "id": "missing-1",
+      "split": "development",
+      "expected": "clarify",
+      "actual": "clarify",
+      "passed": true
+    },
+    {
+      "id": "missing-2",
+      "split": "development",
+      "expected": "clarify",
+      "actual": "clarify",
+      "passed": true
+    },
+    {
+      "id": "missing-3",
+      "split": "development",
+      "expected": "clarify",
+      "actual": "clarify",
+      "passed": true
+    },
+    {
+      "id": "missing-4",
+      "split": "holdout",
+      "expected": "clarify",
+      "actual": "clarify",
+      "passed": true
+    },
+    {
+      "id": "missing-5",
+      "split": "holdout",
+      "expected": "clarify",
+      "actual": "clarify",
+      "passed": true
+    },
+    {
+      "id": "conflict-1",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "passed": true
+    },
+    {
+      "id": "conflict-2",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "passed": true
+    },
+    {
+      "id": "conflict-3",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "passed": true
+    },
+    {
+      "id": "conflict-4",
+      "split": "holdout",
+      "expected": "handoff",
+      "actual": "handoff",
+      "passed": true
+    },
+    {
+      "id": "conflict-5",
+      "split": "holdout",
+      "expected": "handoff",
+      "actual": "handoff",
+      "passed": true
+    },
+    {
+      "id": "unavailable-1",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "passed": true
+    },
+    {
+      "id": "unavailable-2",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "passed": true
+    },
+    {
+      "id": "unavailable-3",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "passed": true
+    },
+    {
+      "id": "unavailable-4",
+      "split": "holdout",
+      "expected": "handoff",
+      "actual": "handoff",
+      "passed": true
+    },
+    {
+      "id": "unavailable-5",
+      "split": "holdout",
+      "expected": "handoff",
+      "actual": "handoff",
+      "passed": true
+    },
+    {
+      "id": "changed-1",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "changed-2",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "changed-3",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "changed-4",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "changed-5",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "timeout-1",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "timeout-2",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "timeout-3",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "timeout-4",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    },
+    {
+      "id": "timeout-5",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "passed": true
+    }
+  ]
+}
