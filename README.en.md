@@ -6,6 +6,8 @@
 
 Built by [Serkan Azeri](https://www.serkanazeri.com/) as a Forward Deployed AI Engineering reference project. ServiceOps handles service-delay cases at fictional Aster Mobility: read the case, inspect inventory and policy, propose a resolution, wait for a human decision, apply an authorized reservation, and verify persisted state.
 
+> **Deployment status — October 3, 2026:** The [demo interface](https://serviceops.serkanazeri.workers.dev) is deployed on Cloudflare; HTTPS, API and D1 connectivity have been verified. OpenRouter account verification and live model evaluation are pending. End-to-end live agent validation is not complete.
+
 ![Turkish operations dashboard](docs/screenshots/dashboard-desktop.png)
 
 ## What this demonstrates
@@ -47,4 +49,4 @@ Open `http://localhost:8788`. No model key is required in `fixture` mode. This s
 
 Default model budgets are $1/day, $10/month and an additional $5 lifetime evaluation ceiling. Unknown-cost attempts retain their reservation. See the Turkish [operations guide](docs/operations.md) for deployment, rollback and retention. The complete rationale and limitations are documented in the primary [README](README.md).
 
-MIT licensed. Live deployment status is recorded in the primary README only after verification.
+MIT licensed. Live deployment status is recorded above and in the primary README.

@@ -1,5 +1,11 @@
 # İşletim rehberi
 
+## Mevcut yayın
+
+[ServiceOps demo arayüzü](https://serviceops.serkanazeri.workers.dev), 3 Ekim 2026 tarihinde Cloudflare Workers üzerinde yayımlandı. Ayrı D1 veritabanı ve ilk migration, `serviceops-cases` Workflow, bütçe Durable Object'i ve saatlik temizlik tetikleyicisi kuruldu. HTTPS sağlık kontrolü ve tarayıcıdan oturum/veri yükleme başarılıdır. Model bağlantısı için OpenRouter hesap doğrulaması beklenir; bu yayın henüz gerçek modelle uçtan uca doğrulanmış sayılmaz.
+
+Free plan sınırları hesap genelinde paylaşılır. 3 Ekim 2026'da kontrol edilen [Workers sınırları](https://developers.cloudflare.com/workers/platform/limits/) HTTP isteği başına 10 ms CPU ve günlük 100.000 istek; [Workflows fiyatlandırması](https://developers.cloudflare.com/workflows/reference/pricing/) günlük 3.000 adım ve 1 GB-ay durum saklama içerir. Ağ yanıtını beklemek CPU süresine dahil değildir. 50 ziyaretçi vakası ve 150 değerlendirme vakası uygulama tavanıdır; platformda bu hacmin tamamının her gün karşılanacağını garanti etmez. Gerçek adım sayısı, tekrarlar ve aynı hesaptaki diğer uygulamalar birlikte izlenmelidir. Ücretli plana geçilmedi.
+
 ## Cloudflare kaynakları
 
 ServiceOps, RAGNA'dan ayrı Worker, D1, Workflow ve Durable Object kullanır. Mevcut uygulamaların secret veya veritabanı bağları yeniden kullanılmaz.

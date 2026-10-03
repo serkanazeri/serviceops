@@ -8,7 +8,7 @@
 
 ServiceOps, bir Forward Deployed AI Engineer'ın iş problemini çalışan ve denetlenebilir bir sisteme dönüştürme yaklaşımını gösterir. Kurgusal **Aster Mobility** şirketinin geciken servis vakalarını inceler; müşteri kaydı, stok ve politikadan kanıt toplar; çözüm önerir; gerekli insan onayından sonra rezervasyon yapar ve sonucu veritabanından tekrar okuyarak doğrular.
 
-> **Durum:** Yerel iş akışı ve politika testleri uygulanmıştır. Canlı yayın ve OpenRouter değerlendirme sonuçları, gerçek dağıtım doğrulandıktan sonra burada yayımlanır. Yerel test sağlayıcısı çıktıları LLM başarısı olarak sunulmaz.
+> **Yayın durumu — 3 Ekim 2026:** [Demo arayüzü](https://serviceops.serkanazeri.workers.dev) Cloudflare üzerinde yayında; HTTPS, API ve D1 bağlantısı doğrulandı. OpenRouter bağlantısının hesap doğrulaması ve gerçek model değerlendirmesi bekleniyor. Uçtan uca canlı agent doğrulaması henüz tamamlanmadı. Yerel test sağlayıcısı çıktıları LLM başarısı olarak sunulmaz.
 
 ![ServiceOps Türkçe operasyon dashboard'u](docs/screenshots/dashboard-desktop.png)
 

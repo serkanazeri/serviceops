@@ -189,9 +189,13 @@ export function App() {
               <i />
               {offline
                 ? "Çevrimdışı"
-                : boot.data?.mode === "live"
-                  ? "Canlı model"
-                  : "Yerel test modu"}
+                : !boot.data
+                  ? "Bağlantı kontrol ediliyor"
+                  : boot.data.mode === "live"
+                    ? boot.data.configured
+                      ? "Canlı model"
+                      : "Model bağlantısı bekleniyor"
+                    : "Yerel test modu"}
             </span>
             {install && (
               <button
@@ -217,6 +221,12 @@ export function App() {
             </div>
           )}
           <ErrorBox message={boot.error} />
+          {boot.data?.mode === "live" && !boot.data.configured && (
+            <div className="notice" role="status">
+              <Activity size={18} /> Model bağlantısı hazırlanıyor. Arayüzü
+              inceleyebilirsiniz; yeni vaka başlatma henüz kullanılamıyor.
+            </div>
+          )}
           <Suspense fallback={<Skeleton />}>
             {!boot.data ? (
               offline ? (
@@ -303,7 +313,9 @@ function NewCase({
         <p className="modal-intro">
           Her senaryo ayrı sentetik kayıtlarla başlar.{" "}
           {boot.mode === "live"
-            ? "Gerçek model çağrıları kullanılır."
+            ? boot.configured
+              ? "Gerçek model çağrıları kullanılır."
+              : "Model bağlantısı tamamlandığında vakaları başlatabilirsiniz."
             : "Yerel test sağlayıcısı kullanılır; LLM çağrısı yapılmaz."}
         </p>
         <div className="scenario-grid">
@@ -336,7 +348,7 @@ function NewCase({
         </span>
         <button
           className="button primary"
-          disabled={busy || offline}
+          disabled={busy || offline || (boot.mode === "live" && !boot.configured)}
           onClick={() => void start()}
         >
           {busy ? (
