@@ -8,7 +8,21 @@
 
 ServiceOps, bir Forward Deployed AI Engineer'ın iş problemini çalışan ve denetlenebilir bir sisteme dönüştürme yaklaşımını gösterir. Kurgusal **Aster Mobility** şirketinin geciken servis vakalarını inceler; müşteri kaydı, stok ve politikadan kanıt toplar; çözüm önerir; gerekli insan onayından sonra rezervasyon yapar ve sonucu veritabanından tekrar okuyarak doğrular.
 
-> **Yayın durumu — 3 Ekim 2026:** [Demo arayüzü](https://serviceops.serkanazeri.workers.dev) Cloudflare üzerinde yayında; HTTPS, API ve D1 bağlantısı doğrulandı. OpenRouter bağlantısının hesap doğrulaması ve gerçek model değerlendirmesi bekleniyor. Uçtan uca canlı agent doğrulaması henüz tamamlanmadı. Yerel test sağlayıcısı çıktıları LLM başarısı olarak sunulmaz.
+> **[Canlı demoyu aç →](https://serviceops.serkanazeri.workers.dev)** · Türkçe, responsive, kurulabilir PWA. OpenRouter üzerinden gerçek model, kalıcı insan onayı ve doğrulanmış rezervasyon akışı Cloudflare üzerinde çalışır.
+
+### Doğrulanmış yayın — 3 Ekim 2026
+
+| Kontrol | Ölçülen sonuç |
+| --- | --- |
+| Gerçek model değerlendirmesi | **40/40** sentetik vaka; 24/24 geliştirme, **16/16 ayrılmış test** |
+| Model / sağlayıcı | `openai/gpt-6-luna` / OpenAI, OpenRouter üzerinden |
+| Çağrı / maliyet | **99 çağrı · $0,0104944 toplam**; maliyet kapsamı %100 |
+| Uçtan uca vaka süresi | p50 **6,064 sn**, p95 **11,106 sn**, n=40; otomatik değerlendirme onayı dahil |
+| Yazılım doğrulaması | **72 birim testi**, 40 deterministik politika senaryosu, **9 uçtan uca test** |
+
+[Ham canlı rapor](public/live-evaluation.json) · [Yayın doğrulama kaydı](docs/release-verification.md) · [GitHub Actions](https://github.com/serkanazeri/serviceops/actions/workflows/ci.yml)
+
+Sonuçlar tek çalıştırmadaki küçük sentetik veri setine aittir; gerçek müşteri başarısı veya insan değerlendirmesi iddiası değildir. Yerel test sağlayıcısı çıktıları LLM başarısı olarak sunulmaz.
 
 ![ServiceOps Türkçe operasyon dashboard'u](docs/screenshots/dashboard-desktop.png)
 
@@ -100,7 +114,7 @@ Canlı değerlendirme ayrı ve bütçe kontrollüdür:
 
 ```bash
 # EVALUATION_TOKEN, .dev.vars ve sunucuda aynı secret olmalı.
-npm run evaluate:live -- --url https://YOUR_WORKER.workers.dev --limit 40 --publish
+npm run evaluate:live -- --url https://serviceops.serkanazeri.workers.dev --limit 40 --publish
 ```
 
 Rapor model/prompt/veri seti sürümü, veri seti hash'i, deneme sayısı, sağlayıcı, maliyet, süre ve başarısızlıkları içerir. Model testleri veya insan değerlendirmesi çalıştırılmadan bunlara ait başarı yüzdesi yayımlanmaz. [Yöntem ve sınırlar →](docs/evaluation.md)

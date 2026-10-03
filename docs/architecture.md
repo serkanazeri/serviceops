@@ -63,6 +63,8 @@ Başlangıç modeli `openai/gpt-6-luna`, OpenRouter Chat Completions üzerinden 
 
 Sağlayıcı seçimi gerekli parametre desteğini ve milyon token başına en fazla $0,10 giriş / $0,50 çıkış fiyatını şart koşar. Uygun sağlayıcı yoksa istek başarısız olur; fiyat sınırı sessizce artırılmaz. Her denemeden önce bütçe ayrılır. Gerçek kullanım raporu yoksa maliyet bilinmiyor olarak kalır. Bu yapılandırma canlı model başarısının kanıtı değildir; canlı değerlendirme raporu ayrıca yayımlanır.
 
+3 Ekim 2026 canlı entegrasyonunda `temperature` ve `parallel_tool_calls` alanlarının `require_parameters: true` ile sağlayıcı eşleşmesini engellediği doğrulandı (HTTP 404). Adaptör yalnızca model kataloğunun ilan ettiği alanları gönderir; parametre filtresi veya fiyat tavanı gevşetilmez. Bir yanıtta birden fazla araç isteği gelirse sunucu bunları sırayla ve ayrı doğrulamayla işler. Cloudflare'ın `NonRetryableError: PROVIDER_404` gibi sarmaladığı hata mesajları, yalnızca izin verilen biçimdeki kısa hata koduna dönüştürülür. Bu sayede yapılandırma hataları değerlendirmeyi erken durdurur; ham sağlayıcı mesajları kullanıcıya açılmaz.
+
 ## Kaynaklar
 
 - [Cloudflare: durable AI agents](https://developers.cloudflare.com/workflows/get-started/durable-agents/)
@@ -71,3 +73,4 @@ Sağlayıcı seçimi gerekli parametre desteğini ve milyon token başına en fa
 - [OpenRouter: usage accounting](https://openrouter.ai/docs/cookbook/administration/usage-accounting)
 - [OpenAI: GPT-6 Luna model ve araç çağırma desteği](https://developers.openai.com/api/docs/models/gpt-6-luna)
 - [OpenRouter: reasoning parametreleri](https://openrouter.ai/docs/guides/best-practices/reasoning-tokens)
+- [OpenRouter: sağlayıcı seçimi ve zorunlu parametre desteği](https://openrouter.ai/docs/guides/routing/provider-selection)

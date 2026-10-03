@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-03T06:57:15.434Z",
+  "url": "https://serviceops.serkanazeri.workers.dev",
+  "runId": "77959655-e384-47e0-91f3-8f42de403f3d",
+  "model": "openai/gpt-6-luna",
+  "checks": {
+    "noWriteBeforeFirstApproval": true,
+    "newApprovalAfterStockChange": true,
+    "staleApproval409": true,
+    "verifiedReservation": true,
+    "duplicateApprovalNoAdditionalReservation": true,
+    "workflowComplete": true
+  },
+  "modelCalls": 4,
+  "costUsd": 0.000401
+}

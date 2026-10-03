@@ -2,7 +2,9 @@
 
 ## Mevcut yayın
 
-[ServiceOps demo arayüzü](https://serviceops.serkanazeri.workers.dev), 3 Ekim 2026 tarihinde Cloudflare Workers üzerinde yayımlandı. Ayrı D1 veritabanı ve ilk migration, `serviceops-cases` Workflow, bütçe Durable Object'i ve saatlik temizlik tetikleyicisi kuruldu. HTTPS sağlık kontrolü ve tarayıcıdan oturum/veri yükleme başarılıdır. Model bağlantısı için OpenRouter hesap doğrulaması beklenir; bu yayın henüz gerçek modelle uçtan uca doğrulanmış sayılmaz.
+[ServiceOps canlı demo](https://serviceops.serkanazeri.workers.dev), 3 Ekim 2026 tarihinde Cloudflare Workers üzerinde yayımlandı. Ayrı D1 veritabanı ve ilk migration, `serviceops-cases` Workflow, bütçe Durable Object'i ve saatlik temizlik tetikleyicisi kuruldu. HTTPS, tarayıcı oturumu, gerçek OpenRouter modeli, insan onayı ve işlem sonrası doğrulama çalıştırıldı; Cloudflare Workflow durumu ayrıca `complete` olarak doğrulandı. Tam canlı değerlendirmede 40/40 vaka geçti. [Yayın kanıtı](release-verification.md).
+
+OpenRouter için yalnızca bu projede kullanılan anahtarın toplam limiti **$10**, otomatik limit sıfırlaması kapalı ve son kullanma tarihi **1 Ocak 2027** olarak ayarlandı. Bu limit aylık uygulama sınırından bağımsızdır. Süre veya toplam kredi dolmadan işletici aynı kapsamda anahtar yenilemeli; önce yeni secret'ı doğrulayıp ardından eski anahtarı kapatmalıdır. Anahtar değeri repoda veya istemci paketinde bulunmaz. Harici değerlendirme anahtarı da ayrı Worker secret'ıdır.
 
 Free plan sınırları hesap genelinde paylaşılır. 3 Ekim 2026'da kontrol edilen [Workers sınırları](https://developers.cloudflare.com/workers/platform/limits/) HTTP isteği başına 10 ms CPU ve günlük 100.000 istek; [Workflows fiyatlandırması](https://developers.cloudflare.com/workflows/reference/pricing/) günlük 3.000 adım ve 1 GB-ay durum saklama içerir. Ağ yanıtını beklemek CPU süresine dahil değildir. 50 ziyaretçi vakası ve 150 değerlendirme vakası uygulama tavanıdır; platformda bu hacmin tamamının her gün karşılanacağını garanti etmez. Gerçek adım sayısı, tekrarlar ve aynı hesaptaki diğer uygulamalar birlikte izlenmelidir. Ücretli plana geçilmedi.
 
@@ -74,4 +76,4 @@ GitHub Actions yalnızca yerel fixture modu çalıştırır; PR'lara model veya 
 
 ## Yerel runtime uyarısı
 
-Wrangler 4.146.0 ile onay bekleyen akışlarda `code had hung` şeklinde runtime logları gözlendi. Aynı testlerde HTTP yanıtları, rezervasyon postcondition'ları ve ayrı Workflow status sorgusundaki `complete` durumu doğrulandı. Bu gözlem production davranışı için kanıt sayılmaz; canlı yayın smoke testinde Workflow durumu ayrıca kontrol edilmelidir. Logu bastırmak yerine tamamlanma durumu ve iş verisi birlikte doğrulanır.
+Wrangler 4.146.0 ile onay bekleyen yerel akışlarda `code had hung` şeklinde runtime logları gözlendi. Aynı testlerde HTTP yanıtları, rezervasyon postcondition'ları ve ayrı Workflow status sorgusundaki `complete` durumu doğrulandı. 3 Ekim canlı doğrulamasında gerçek model vakasının Cloudflare Workflow durumu da `Completed` olarak kontrol edildi. Yerel log gözlemi veya tek canlı başarı, bütün runtime hatalarını çözdüğümüz iddiası değildir; tamamlanma durumu ve iş verisi birlikte izlenir.

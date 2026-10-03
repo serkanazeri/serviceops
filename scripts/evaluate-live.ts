@@ -10,6 +10,7 @@ import { expectedByFamily } from "../shared/oracles";
 import type { RunDetail } from "../shared/types";
 import type { LiveResult } from "../shared/evaluation-report";
 import { evaluationOptions } from "./evaluation-options";
+import { blocksEvaluation } from "../shared/errors";
 const options = evaluationOptions(process.argv.slice(2));
 const { base } = options;
 const vars = await readFile(".dev.vars", "utf8").catch(() => "");
@@ -109,13 +110,8 @@ for (const s of sample) {
   console.log(`${s.id}: ${result.passed ? "PASS" : "FAIL"} (${result.status})`);
   if (
     error?.includes("429") ||
-    [
-      "PROVIDER_401",
-      "PROVIDER_402",
-      "PROVIDER_403",
-      "MODEL_NOT_CONFIGURED",
-      "BUDGET_EXCEEDED",
-    ].includes(result.error ?? "")
+    blocksEvaluation(result.error) ||
+    calls.some((call) => blocksEvaluation(call.error_code))
   )
     break;
 }

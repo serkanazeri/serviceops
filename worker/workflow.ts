@@ -20,6 +20,7 @@ import {
 } from "../shared/domain";
 import { event, getRun } from "./store";
 import { modelTurn, systemPrompt, type Message } from "./model";
+import { workflowErrorCode } from "../shared/errors";
 
 export class CaseWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
   async plan(
@@ -442,10 +443,7 @@ export class CaseWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
       }
       throw new NonRetryableError("REPLAN_LIMIT");
     } catch (error) {
-      const code =
-        error instanceof Error && /^[A-Z_0-9]+$/.test(error.message)
-          ? error.message
-          : "WORKFLOW_ERROR";
+      const code = workflowErrorCode(error);
       await step.do("record-failure", async () => {
         const now = Date.now();
         await this.env.DB.prepare(

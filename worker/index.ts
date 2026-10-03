@@ -277,14 +277,15 @@ app.post("/api/runs/:id/approval", async (c) => {
       409,
     );
   if (
-    !existing &&
-    (run.status !== "awaiting_approval" || run.plan_version !== input.version)
+    run.plan_version !== input.version ||
+    (!existing && run.status !== "awaiting_approval")
   )
     return c.json({ error: errors.STALE_PLAN }, 409);
   if (!existing && Date.now() - (run.approval_started_at ?? 0) > 86400000)
     return c.json({ error: "Onay süresi doldu." }, 409);
   const plan = run.plan_json ? JSON.parse(run.plan_json) : null;
   if (
+    !existing &&
     input.decision !== "reject" &&
     (!eligibleOptions(JSON.parse(run.case_json)).includes(input.optionId) ||
       (input.decision === "approve" && plan?.optionId !== input.optionId))

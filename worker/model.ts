@@ -52,11 +52,10 @@ export async function modelTurn(
           messages,
           tools: toolDefinitions,
           tool_choice: "required",
-          parallel_tool_calls: false,
           // GPT-6 Luna requires reasoning off for Chat Completions tool calls.
           reasoning: { effort: "none" },
           max_tokens: 1400,
-          temperature: 0,
+          // Only advertised parameters: strict routing rejects temperature and parallel_tool_calls.
           provider: {
             require_parameters: true,
             max_price: { prompt: 0.1, completion: 0.5 },

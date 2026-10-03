@@ -1,5 +1,11 @@
 # Değerlendirme yöntemi
 
+## Son ölçüm — 3 Ekim 2026
+
+[`public/live-evaluation.json`](../public/live-evaluation.json): **40/40** canlı vaka; geliştirme **24/24**, ayrılmış test **16/16**. Model `openai/gpt-6-luna`, sağlayıcı OpenAI. **99 model çağrısı**, raporlanan toplam **$0,0104944**, eksik maliyet **0**. Vaka süresi p50 **6.064 ms**, p95 **11.106 ms** (nearest-rank, n=40); bu süre otomatik değerlendirme onayı ve polling gecikmesini içerir. İnsan bekleme süresi veya modelin tek başına gecikmesi olarak yorumlanmamalıdır.
+
+Tam ölçüm öncesindeki entegrasyon smoke testinde desteklenmeyen parametreler nedeniyle bir 404 alındı. İstek sözleşmesi düzeltildikten sonra tam veri seti bir kez çalıştırıldı; prompt, etiketler ve ayrılmış varyantlar bu sonuçlara göre değiştirilmedi. İlk başarısız ziyaretçi vakası olay günlüğünde tutuldu. Tanılama amaçlı başarılı tek araç çağrısının $0,0000101 maliyeti ve ayrı smoke vakaları 40 vakalık rapor toplamına dahil değildir. Ayrıntılar [yayın kaydında](release-verification.md).
+
 ## Ölçülen görev
 
 Modelin her vakada servis, stok ve politika araçlarını okuyarak doğru ilk çözüm seçeneğini önermesi; onay gerektiren işlemlerin yalnızca onaydan sonra uygulanması; son durumun iş kurallarına uyması beklenir. Akıcı Türkçe tek başına görev başarısı sayılmaz.

@@ -1,4 +1,665 @@
 {
-  "kind": "not-run",
-  "reason": "Canlı model değerlendirmesi henüz çalıştırılmadı."
+  "kind": "live-agent-evaluation",
+  "startedAt": "2026-10-03T06:48:34.525Z",
+  "generatedAt": "2026-10-03T06:54:13.351Z",
+  "dataset": "serviceops-tr-v1",
+  "datasetHash": "1f12e4a6e27422e79fe829675b7f713e318905c2326bacbd70192c0c12d93ff3",
+  "prompt": "planner-tr-v1",
+  "model": "openai/gpt-6-luna",
+  "requested": 40,
+  "total": 40,
+  "passed": 40,
+  "split": {
+    "development": {
+      "total": 24,
+      "passed": 24
+    },
+    "holdout": {
+      "total": 16,
+      "passed": 16
+    }
+  },
+  "humanReview": false,
+  "results": [
+    {
+      "id": "part-1",
+      "runId": "2d1cf10b-7162-4a2b-be38-09885cb7486b",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 3,
+      "cost": 0.0003675,
+      "latencyMs": 9565,
+      "error": null
+    },
+    {
+      "id": "part-2",
+      "runId": "37b4195b-327b-4443-a657-571abb7a5383",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00018790000000000001,
+      "latencyMs": 6033,
+      "error": null
+    },
+    {
+      "id": "part-3",
+      "runId": "7d6130ae-6c36-4644-8898-5a6842a2032f",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00020199999999999998,
+      "latencyMs": 10860,
+      "error": null
+    },
+    {
+      "id": "part-4",
+      "runId": "1ffe7e5b-42d5-4af4-be40-4e8ecc7ec81b",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.0001965,
+      "latencyMs": 7563,
+      "error": null
+    },
+    {
+      "id": "part-5",
+      "runId": "52461a2e-cede-4b0c-81a3-f109f375f84d",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.000194,
+      "latencyMs": 6043,
+      "error": null
+    },
+    {
+      "id": "alternate-1",
+      "runId": "5e9c625b-20a0-4a8b-87b5-743e34abf921",
+      "split": "development",
+      "expected": "part-alternate",
+      "actual": "part-alternate",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.0002095,
+      "latencyMs": 7588,
+      "error": null
+    },
+    {
+      "id": "alternate-2",
+      "runId": "ba1ea3bf-b5ec-4836-9775-2bfb3393e826",
+      "split": "development",
+      "expected": "part-alternate",
+      "actual": "part-alternate",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.0002034,
+      "latencyMs": 6064,
+      "error": null
+    },
+    {
+      "id": "alternate-3",
+      "runId": "f9274e94-1869-42b5-91ce-c0da29ac9112",
+      "split": "development",
+      "expected": "part-alternate",
+      "actual": "part-alternate",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.000205,
+      "latencyMs": 7611,
+      "error": null
+    },
+    {
+      "id": "alternate-4",
+      "runId": "0afcde04-d42c-4a07-977b-8d703d2ae3ca",
+      "split": "holdout",
+      "expected": "part-alternate",
+      "actual": "part-alternate",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00019250000000000002,
+      "latencyMs": 6030,
+      "error": null
+    },
+    {
+      "id": "alternate-5",
+      "runId": "a97f664e-1c57-4c7b-8b37-20965ed1860f",
+      "split": "holdout",
+      "expected": "part-alternate",
+      "actual": "part-alternate",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.000199,
+      "latencyMs": 7747,
+      "error": null
+    },
+    {
+      "id": "vehicle-1",
+      "runId": "7b9e1f9b-3655-4b0b-97fa-d4e479cbf770",
+      "split": "development",
+      "expected": "vehicle",
+      "actual": "vehicle",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.0002055,
+      "latencyMs": 5998,
+      "error": null
+    },
+    {
+      "id": "vehicle-2",
+      "runId": "a2fdfab0-9cf4-434d-b1ba-e6d58af470be",
+      "split": "development",
+      "expected": "vehicle",
+      "actual": "vehicle",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00019989999999999998,
+      "latencyMs": 7636,
+      "error": null
+    },
+    {
+      "id": "vehicle-3",
+      "runId": "c3bd8909-9ca5-4aa5-ae95-7f040c51ba78",
+      "split": "development",
+      "expected": "vehicle",
+      "actual": "vehicle",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.0002005,
+      "latencyMs": 6086,
+      "error": null
+    },
+    {
+      "id": "vehicle-4",
+      "runId": "09311974-ce19-4d4a-bca9-8f809fcaab08",
+      "split": "holdout",
+      "expected": "vehicle",
+      "actual": "vehicle",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.000212,
+      "latencyMs": 5923,
+      "error": null
+    },
+    {
+      "id": "vehicle-5",
+      "runId": "4762e603-f2cc-40bf-9833-f1d072aa0174",
+      "split": "holdout",
+      "expected": "vehicle",
+      "actual": "vehicle",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.000212,
+      "latencyMs": 5986,
+      "error": null
+    },
+    {
+      "id": "missing-1",
+      "runId": "f41f57b5-ddf7-4210-a291-54b322969abf",
+      "split": "development",
+      "expected": "clarify",
+      "actual": "clarify",
+      "status": "needs_info",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00019490000000000002,
+      "latencyMs": 4060,
+      "error": null
+    },
+    {
+      "id": "missing-2",
+      "runId": "f098f468-5924-4777-b14e-4c6731164606",
+      "split": "development",
+      "expected": "clarify",
+      "actual": "clarify",
+      "status": "needs_info",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00018829999999999997,
+      "latencyMs": 3851,
+      "error": null
+    },
+    {
+      "id": "missing-3",
+      "runId": "cbf51287-6a46-47c4-ba20-5da815fe5ccb",
+      "split": "development",
+      "expected": "clarify",
+      "actual": "clarify",
+      "status": "needs_info",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00019939999999999997,
+      "latencyMs": 4916,
+      "error": null
+    },
+    {
+      "id": "missing-4",
+      "runId": "7d213286-9f5d-49b8-9001-8345c6b55a9e",
+      "split": "holdout",
+      "expected": "clarify",
+      "actual": "clarify",
+      "status": "needs_info",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.0001894,
+      "latencyMs": 5132,
+      "error": null
+    },
+    {
+      "id": "missing-5",
+      "runId": "0da78c01-2744-40e3-b38f-e89047b2767d",
+      "split": "holdout",
+      "expected": "clarify",
+      "actual": "clarify",
+      "status": "needs_info",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00020140000000000002,
+      "latencyMs": 5433,
+      "error": null
+    },
+    {
+      "id": "conflict-1",
+      "runId": "3e430af8-fe18-46e1-aba3-186b6f3e7cfb",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "status": "handed_off",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 3,
+      "cost": 0.00036229999999999997,
+      "latencyMs": 7155,
+      "error": null
+    },
+    {
+      "id": "conflict-2",
+      "runId": "343cf46b-6947-4e34-ad1e-704bd04ae8fc",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "status": "handed_off",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.0002004,
+      "latencyMs": 4368,
+      "error": null
+    },
+    {
+      "id": "conflict-3",
+      "runId": "8edccd27-d781-4ce6-b469-9b2c7e2f7b48",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "status": "handed_off",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00019299999999999997,
+      "latencyMs": 4983,
+      "error": null
+    },
+    {
+      "id": "conflict-4",
+      "runId": "df5e221b-be05-4222-8c7f-1680046233f0",
+      "split": "holdout",
+      "expected": "handoff",
+      "actual": "handoff",
+      "status": "handed_off",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00019099999999999998,
+      "latencyMs": 4606,
+      "error": null
+    },
+    {
+      "id": "conflict-5",
+      "runId": "e724de8b-57f6-4bd4-ab25-6240bd3d6d28",
+      "split": "holdout",
+      "expected": "handoff",
+      "actual": "handoff",
+      "status": "handed_off",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 3,
+      "cost": 0.0003978,
+      "latencyMs": 7071,
+      "error": null
+    },
+    {
+      "id": "unavailable-1",
+      "runId": "4ca6cc81-55c0-4aa3-a94c-919af28f6472",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "status": "handed_off",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00021799999999999999,
+      "latencyMs": 5273,
+      "error": null
+    },
+    {
+      "id": "unavailable-2",
+      "runId": "06d5850c-f4bb-45e1-a12b-162f7604d0a7",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "status": "handed_off",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00018889999999999998,
+      "latencyMs": 4232,
+      "error": null
+    },
+    {
+      "id": "unavailable-3",
+      "runId": "98e57e01-75a7-4923-aac1-a067dc037b0d",
+      "split": "development",
+      "expected": "handoff",
+      "actual": "handoff",
+      "status": "handed_off",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00019,
+      "latencyMs": 5861,
+      "error": null
+    },
+    {
+      "id": "unavailable-4",
+      "runId": "e68cb834-8f89-4d10-84b1-2b74ba7a5397",
+      "split": "holdout",
+      "expected": "handoff",
+      "actual": "handoff",
+      "status": "handed_off",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.00021,
+      "latencyMs": 4657,
+      "error": null
+    },
+    {
+      "id": "unavailable-5",
+      "runId": "5dd33128-2d33-4728-9977-86287d358637",
+      "split": "holdout",
+      "expected": "handoff",
+      "actual": "handoff",
+      "status": "handed_off",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.000203,
+      "latencyMs": 4654,
+      "error": null
+    },
+    {
+      "id": "changed-1",
+      "runId": "3491e5ff-c297-4752-8962-39c5ca3d1cfa",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 4,
+      "cost": 0.0004085,
+      "latencyMs": 10998,
+      "error": null
+    },
+    {
+      "id": "changed-2",
+      "runId": "0dc85790-9420-4372-b181-2f7ad56b490c",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 6,
+      "cost": 0.0007273,
+      "latencyMs": 15873,
+      "error": null
+    },
+    {
+      "id": "changed-3",
+      "runId": "5ad689be-152f-40fb-9e8b-5814f18665ee",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 4,
+      "cost": 0.00040649999999999996,
+      "latencyMs": 10983,
+      "error": null
+    },
+    {
+      "id": "changed-4",
+      "runId": "b7479fb6-c3e4-4285-a3c1-423040a33d06",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 6,
+      "cost": 0.0007264999999999999,
+      "latencyMs": 16066,
+      "error": null
+    },
+    {
+      "id": "changed-5",
+      "runId": "9371a285-35a7-44cd-a663-8d867326805b",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 4,
+      "cost": 0.0004005,
+      "latencyMs": 11106,
+      "error": null
+    },
+    {
+      "id": "timeout-1",
+      "runId": "cb13d78a-646a-4b82-b6ea-0c53fd514480",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 3,
+      "cost": 0.0003377,
+      "latencyMs": 9222,
+      "error": null
+    },
+    {
+      "id": "timeout-2",
+      "runId": "1771da0e-4c4f-4dd0-b15d-5b16898c3509",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.0002164,
+      "latencyMs": 7808,
+      "error": null
+    },
+    {
+      "id": "timeout-3",
+      "runId": "b338a251-3aac-4bf5-b3e2-49e634ff0d8c",
+      "split": "development",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 3,
+      "cost": 0.00035249999999999995,
+      "latencyMs": 9088,
+      "error": null
+    },
+    {
+      "id": "timeout-4",
+      "runId": "9c296df8-e62a-4ccd-b97f-041194e98dc2",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.000194,
+      "latencyMs": 6253,
+      "error": null
+    },
+    {
+      "id": "timeout-5",
+      "runId": "a0d242a4-0d3e-4fc6-8d07-08933134117d",
+      "split": "holdout",
+      "expected": "part-local",
+      "actual": "part-local",
+      "status": "completed",
+      "passed": true,
+      "provider": [
+        "OpenAI"
+      ],
+      "attempts": 2,
+      "cost": 0.0002095,
+      "latencyMs": 7580,
+      "error": null
+    }
+  ]
 }

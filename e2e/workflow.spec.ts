@@ -92,6 +92,12 @@ test("stale approval never executes: stock drift requires a second approval", as
   const done = await until(request, id, "completed", 2);
   expect(done.data.alternateStock).toBe(0);
   expect(done.data.partStock).toBe(0);
+  // A retry acknowledges the saved decision even after the final item was consumed.
+  expect((await approve(request, id, 2, "part-alternate")).status()).toBe(200);
+  const duplicate = await detail(request, id);
+  expect(duplicate.reservation?.id).toBe(done.reservation?.id);
+  expect(duplicate.data.alternateStock).toBe(0);
+  expect((await approve(request, id, 1, "part-local")).status()).toBe(409);
 });
 test("rejecting the proposal has no write side effect", async ({ request }) => {
   const id = await start(request, "part-1");

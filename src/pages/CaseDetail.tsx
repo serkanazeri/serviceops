@@ -117,7 +117,7 @@ export default function CaseDetail({
         </span>
         <span>
           <FileCheck2 size={16} />
-          Plan v{run.plan_version || 1}
+          {run.plan_version ? `Plan v${run.plan_version}` : "Henüz plan yok"}
         </span>
       </div>
       <div className="detail-grid">
@@ -301,8 +301,17 @@ export default function CaseDetail({
                 )}
               </div>
             ) : (
-              <Empty title="Kaynaklar inceleniyor" icon={Search}>
-                Öneri hazır olduğunda kanıtlarıyla birlikte burada görünecek.
+              <Empty
+                title={
+                  run.status === "failed"
+                    ? "Öneri oluşturulamadı"
+                    : "Kaynaklar inceleniyor"
+                }
+                icon={run.status === "failed" ? AlertTriangle : Search}
+              >
+                {run.status === "failed"
+                  ? "Akış durdu. Hata ayrıntılarını yürütme günlüğünden inceleyebilirsiniz."
+                  : "Öneri hazır olduğunda kanıtlarıyla birlikte burada görünecek."}
               </Empty>
             )}
           </section>
