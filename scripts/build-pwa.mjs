@@ -43,7 +43,7 @@ function icon(n, mask = false) {
       );
       const p = y * (n * 4 + 1) + 1 + x * 4;
       [raw[p], raw[p + 1], raw[p + 2], raw[p + 3]] =
-        line || node ? [223, 233, 205, 255] : [32, 70, 59, 255];
+        line || node ? [255, 255, 255, 255] : [36, 92, 219, 255];
     }
   const h = Buffer.alloc(13);
   h.writeUInt32BE(n);

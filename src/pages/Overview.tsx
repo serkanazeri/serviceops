@@ -146,7 +146,7 @@ export default function Overview({
           label="Doğrulanmış sonuç"
           value={percent(m?.verifiedRate ?? null)}
           sub={`${m?.verified ?? 0} doğru / ${m?.evaluated ?? 0} değerlendirilen vaka`}
-          accent="green"
+          accent="blue"
         />
         <Stat
           icon={Clock3}

@@ -21,7 +21,7 @@ The scenario data is synthetic. Reservations are persisted in isolated demo reco
 
 ## Stack and choices
 
-React, TypeScript and Vite provide the UI. Hono runs on Cloudflare Workers; Workflows checkpoints model/tool steps and waits for approval; D1 stores cases, audit events and reservations; a Durable Object serializes global budget reservations. OpenRouter serves the initial model candidate, `openai/gpt-6-luna`. Live task evaluation is required before claiming model quality.
+React, TypeScript and Vite provide the UI. Hono runs on Cloudflare Workers; Workflows checkpoints model/tool steps and waits for approval; D1 stores cases, audit events and reservations; a Durable Object serializes global budget reservations. OpenRouter serves the initial model candidate, `openai/gpt-6-luna`. GPT-6 Luna uses explicit `reasoning: { effort: "none" }` for Chat Completions tool compatibility. Live task evaluation is required before claiming model quality.
 
 A single bounded agent fits this task. Business policies stay in a pure module, while orchestration accepts Cloudflare coupling. Paperclip and a multi-agent hierarchy would add operational complexity without a demonstrated requirement here. External CRM connectors and enterprise identity are future extensions.
 
@@ -43,7 +43,7 @@ Open `http://localhost:8788`. No model key is required in `fixture` mode. This s
 
 `npm test` covers domain rules and metric math. `npm run evaluate` checks 40 independently labelled policy cases (24 development, 16 held-out variants), without an LLM call. `npm run test:e2e` verifies approval, duplicates, stock drift, rejection, recovery, session isolation, responsive UI and offline shell behavior.
 
-`npm run evaluate:live -- --url https://YOUR_WORKER.workers.dev --limit 40 --publish` creates a separate live report using an evaluation secret. Reports disclose model/prompt/dataset versions, sample counts, providers, cost coverage and failures. Human language review and manual time savings are not claimed without evidence. Held-out variants share scenario families and are not an independent real-world generalization benchmark.
+`npm run evaluate:live -- --url https://YOUR_WORKER.workers.dev --limit 40 --publish` creates a separate live report using an evaluation secret. Publishing requires all 40 cases; partial smoke runs remain local. Reports disclose model/prompt/dataset versions, sample counts, providers, cost coverage and failures. Human language review and manual time savings are not claimed without evidence. Held-out variants share scenario families and are not an independent real-world generalization benchmark.
 
 Default model budgets are $1/day, $10/month and an additional $5 lifetime evaluation ceiling. Unknown-cost attempts retain their reservation. See the Turkish [operations guide](docs/operations.md) for deployment, rollback and retention. The complete rationale and limitations are documented in the primary [README](README.md).
 

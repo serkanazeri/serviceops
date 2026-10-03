@@ -57,9 +57,17 @@ Günlükte saklanan karar gerekçesi kısa, kullanıcıya gösterilebilir bir ö
 
 Bu sürüm D1 olay kayıtları ve Cloudflare platform logları kullanır. OpenTelemetry collector ihracı uygulanmış gibi sunulmaz. Üretimde bağımsız izleme, olay alarmı ve platform seviyesinde erişim kontrolü eklenmelidir.
 
+## 6. Model protokolü ve maliyet sınırı
+
+Başlangıç modeli `openai/gpt-6-luna`, OpenRouter Chat Completions üzerinden kullanılır. GPT-6 Luna bu protokolde araç çağırmak için reasoning kapalı olmasını gerektirir. Adaptör bu nedenle OpenRouter'ın ortak `reasoning: { effort: "none" }` alanını açıkça gönderir; sağlayıcının varsayılanına güvenmez. Kısa, politika ile sınırlı bu görevde kararın güvenliği sunucu doğrulamasından gelir. Model değişikliği protokol/parametre uyumu ve aynı veri seti üzerinde yeni canlı değerlendirme gerektirir.
+
+Sağlayıcı seçimi gerekli parametre desteğini ve milyon token başına en fazla $0,10 giriş / $0,50 çıkış fiyatını şart koşar. Uygun sağlayıcı yoksa istek başarısız olur; fiyat sınırı sessizce artırılmaz. Her denemeden önce bütçe ayrılır. Gerçek kullanım raporu yoksa maliyet bilinmiyor olarak kalır. Bu yapılandırma canlı model başarısının kanıtı değildir; canlı değerlendirme raporu ayrıca yayımlanır.
+
 ## Kaynaklar
 
 - [Cloudflare: durable AI agents](https://developers.cloudflare.com/workflows/get-started/durable-agents/)
 - [Cloudflare: workflow rules](https://developers.cloudflare.com/workflows/build/rules-of-workflows/)
 - [OpenRouter: tool calling](https://openrouter.ai/docs/guides/features/tool-calling)
 - [OpenRouter: usage accounting](https://openrouter.ai/docs/cookbook/administration/usage-accounting)
+- [OpenAI: GPT-6 Luna model ve araç çağırma desteği](https://developers.openai.com/api/docs/models/gpt-6-luna)
+- [OpenRouter: reasoning parametreleri](https://openrouter.ai/docs/guides/best-practices/reasoning-tokens)

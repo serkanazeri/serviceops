@@ -76,7 +76,7 @@ export default function Evaluations() {
               label="Politika sözleşmeleri"
               value={`${report.passed}/${report.total}`}
               sub="Kaynak okuma, öneri ve işlem sonrası kontrol"
-              accent="green"
+              accent="blue"
             />
             <Stat
               icon={FlaskConical}

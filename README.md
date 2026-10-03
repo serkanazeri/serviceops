@@ -131,7 +131,7 @@ Metrikler için sıfır örneklem `—` olarak görünür. Manuel çalışma sü
 
 Mobil, tablet ve masaüstü için responsive düzen; kurulabilir manifest ve maskable ikonlar; sürümlü uygulama kabuğu önbelleği. Çevrimdışıyken kabuk ve bağlantı durumu açılır. Agent ve onay işlemleri çevrimiçi çalışır; çevrimdışı yazma kuyruğu yoktur. Yeni service worker mevcut oturumu zorla devralmaz.
 
-Fontlar yerel sunulur. Kullanılmayan alfabe dosyaları pakete alınmaz. API listeleri sayfalanır, D1 sorguları indekslidir. Gizli sekmede arka plan polling yapılmaz. Web Vitals p75 ölçümleri oturum bazında toplanır; hedefler LCP ≤2,5 sn, INP ≤200 ms, CLS ≤0,1. Hedef ile doğrulanmış saha sonucu ayrı tutulur.
+Türkçe karakter destekli Source Sans 3 fontu yerel sunulur. Gövde metinleri çoğunlukla 16–17 px, yardımcı metinler 14–15 px boyutundadır; mavi/lacivert palet ve açık yüzeyler kullanılır. Kullanılmayan alfabe dosyaları pakete alınmaz. API listeleri sayfalanır, D1 sorguları indekslidir. Gizli sekmede arka plan polling yapılmaz. Web Vitals p75 ölçümleri oturum bazında toplanır; hedefler LCP ≤2,5 sn, INP ≤200 ms, CLS ≤0,1. Hedef ile doğrulanmış saha sonucu ayrı tutulur.
 
 ## Bütçe ve dağıtım
 

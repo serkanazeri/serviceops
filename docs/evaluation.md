@@ -22,6 +22,8 @@ Ayrılmış varyantlar aynı aileleri paylaşır. Bu, bilinmeyen gerçek dünya 
 
 Rapor; model, prompt/veri seti sürümü, veri seti SHA-256 hash'i, her vakanın beklenen/üretilen ilk seçeneği, nihai durumu, sağlayıcıları, çağrı sayısı, maliyet kapsamı, toplam süre ve hata kodlarını içerir. Geçici hatalar ve başarısız denemeler dışlanmaz. Stok değişimi senaryosunda ilk öneri ve nihai doğrulama birlikte değerlendirilir.
 
+`--limit` yalnızca 1–40 arasında tam sayı kabul eder. `--split development` ve `--split holdout` belirli kohortları çalıştırır; varsayılan `all` olur. Küçük smoke çalışmalarının raporları yerelde saklanır. `--publish` yalnızca tam 40 vakalık veri setinin tümü çalıştırıldığında kullanılabilir; yarıda kesilmiş bir değerlendirme mevcut yayımlanmış raporun üzerine yazılmaz. Kimlik doğrulama, kredi ve bütçe hataları sonraki ücretli vakaları başlatmayı durdurur. HTTP yönlendirmeleri izlenmez; değerlendirme secret'ı başka bir hedefe taşınmaz.
+
 Başlangıç kalite hedefi ayrılmış vakalarda ≥%90 doğru sonuçtur. 16 örnekte tek hata yaklaşık 6,25 yüzde puanı etkiler; küçük örneklemle kesin genelleme yapılmaz. Model değişiklikleri aynı veri ve prompt sürümüyle karşılaştırılmalıdır. Bir çalıştırma stochastic varyansı ölçmez; tekrarlar ayrı raporlanmalıdır.
 
 ## Yayın kriterleri

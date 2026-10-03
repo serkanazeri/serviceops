@@ -9,15 +9,9 @@ import {
 import { expectedByFamily } from "../shared/oracles";
 import type { RunDetail } from "../shared/types";
 import type { LiveResult } from "../shared/evaluation-report";
-const args = process.argv.slice(2);
-const value = (name: string, fallback: string) =>
-  args.includes(name) ? args[args.indexOf(name) + 1] : fallback;
-const base = value("--url", "http://localhost:8788").replace(/\/$/, "");
-if (
-  !/^https:\/\//.test(base) &&
-  !/^http:\/\/(localhost|127\.0\.0\.1):8788$/.test(base)
-)
-  throw new Error("Use HTTPS for remote evaluation.");
+import { evaluationOptions } from "./evaluation-options";
+const options = evaluationOptions(process.argv.slice(2));
+const { base } = options;
 const vars = await readFile(".dev.vars", "utf8").catch(() => "");
 const token =
   process.env.EVALUATION_TOKEN ??
@@ -38,6 +32,7 @@ async function request<T>(path: string, body?: unknown): Promise<T> {
     },
     body: body ? JSON.stringify(body) : undefined,
     signal: AbortSignal.timeout(60000),
+    redirect: "error",
   });
   if (r.headers.get("set-cookie"))
     cookie = r.headers.get("set-cookie")!.split(";")[0];
@@ -55,8 +50,8 @@ if (boot.mode !== "live" || !boot.configured)
     "Live evaluation requires a configured live provider. Fixture results cannot be published as model accuracy.",
   );
 const sample = scenarios
-  .filter((s) => value("--split", "all") !== "holdout" || s.split === "holdout")
-  .slice(0, Math.min(40, Number(value("--limit", "40"))));
+  .filter((s) => options.split === "all" || s.split === options.split)
+  .slice(0, options.limit);
 const results: LiveResult[] = [];
 const startedAt = new Date().toISOString();
 for (const s of sample) {
@@ -112,7 +107,17 @@ for (const s of sample) {
   };
   results.push(result);
   console.log(`${s.id}: ${result.passed ? "PASS" : "FAIL"} (${result.status})`);
-  if (error?.includes("429")) break;
+  if (
+    error?.includes("429") ||
+    [
+      "PROVIDER_401",
+      "PROVIDER_402",
+      "PROVIDER_403",
+      "MODEL_NOT_CONFIGURED",
+      "BUDGET_EXCEEDED",
+    ].includes(result.error ?? "")
+  )
+    break;
 }
 const group = (split: string) => ({
   total: results.filter((r) => r.split === split).length,
@@ -141,13 +146,14 @@ await writeFile(file, JSON.stringify(report, null, 2) + "\n");
 console.log(
   `${report.passed}/${report.total} live cases passed. Report: ${file}. No human-language review claimed.`,
 );
-if (args.includes("--publish") && report.total === sample.length)
+if (options.publish && report.total === scenarios.length)
   await writeFile(
     "public/live-evaluation.json",
     JSON.stringify(report, null, 2) + "\n",
   );
 if (
   report.total !== sample.length ||
+  report.total === 0 ||
   report.passed / report.total < 0.9 ||
   (report.split.holdout.total > 0 &&
     report.split.holdout.passed / report.split.holdout.total < 0.9)
